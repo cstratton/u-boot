@@ -50,7 +50,21 @@
 	aliases {
 		/* ethernet0 is the H3 emac, defined in sun8i-h3.dtsi */
 		ethernet1 = &rtl8189ftv;
+		spi0 = &spi0;
 	};
+};
+
+&pio {
+	spi0_pins: pinctrl {
+		pins = "PC0", "PC1", "PC2", "PC3";
+		drive-strength = <10>;
+		bias-disable;
+	};
+};
+
+&spi0 {
+	pinctrl-0 = <&spi0_pins>;
+	status = "okay";
 };
 
 &mmc1 {
